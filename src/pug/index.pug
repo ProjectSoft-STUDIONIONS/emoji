@@ -1,0 +1,37 @@
+doctype html
+html(lang="ru")
+	head
+		//- Content Type
+		meta(http-equiv="Content-Type" content="text/html; charset=UTF-8")
+		meta(http-equiv="X-UA-Compatible" content="IE=EmulateIE9")
+		//- Viewport
+		meta(name="viewport" content="width=device-width, initial-scale=1")
+		//- CMS Magazine profile
+		meta(name="cmsmagazine" content="d8e7426ec72ad3e4ea38b09ebf01284")
+		//- Skype disabled phone
+		meta(name="SKYPE_TOOLBAR" content ="SKYPE_TOOLBAR_PARSER_COMPATIBLE")
+		//- Default Theme
+		meta(name="color-scheme" content="only light")
+		meta(name="theme-color" content="#ffffff")
+		title
+			|Иконки Emoji
+		meta(name="title" content="Иконки Emoji")
+		meta(name="description" content="Иконки Emoji")
+		meta(name="keywords" content="Иконки Emoji")
+		meta(name="author" content="ProjectSoft")
+		//- Open Graph
+		meta(name="og:url" content="")
+		meta(property="og:type" content="website")
+		meta(name="og:title" content="Иконки Emoji")
+		meta(name="og:description" content="Иконки Emoji")
+		//- |[[ogImage]]
+		meta(name="twitter:card" content="summary_large_image")
+		//- Favicons
+		//- include ../inc/favicon.pug
+		link(type="text/css" rel="stylesheet" href="css/main.min.css?" + hash)
+	body
+		h1.text-center
+			span.inline-block.text-left
+				|Иконки Emoji
+		div(data-plugin="emoji")
+		script(src="js/emoji.min.js?" + hash)
