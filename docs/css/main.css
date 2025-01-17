@@ -23,7 +23,7 @@ body {
   display: flex;
   -ms-flex-direction: column;
       flex-direction: column;
-  min-height: 100vh;
+  font-family: 'Calibri', 'Tahoma', 'Noto Color Emoji', Tofu, sans-serif;
 }
 body main,
 body header,
@@ -41,6 +41,9 @@ body header,
 body footer {
   -ms-flex: 0 0 auto;
       flex: 0 0 auto;
+}
+body footer p:last-child {
+  margin-bottom: unset;
 }
 .container,
 .container-full {
