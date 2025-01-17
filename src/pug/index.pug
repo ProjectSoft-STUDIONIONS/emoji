@@ -27,7 +27,7 @@ html(lang="ru")
 		//- |[[ogImage]]
 		meta(name="twitter:card" content="summary_large_image")
 		//- Favicons
-		//- include ../inc/favicon.pug
+		//- Style
 		link(type="text/css" rel="stylesheet" href="css/main.min.css?" + hash)
 	body
 		header
@@ -41,5 +41,6 @@ html(lang="ru")
 					script(src="js/emoji.min.js?" + hash)
 		footer
 			.container-full
-				p
-					|ProjectSoft © 2008 - all right reserved
+				p.text-right
+					a(href="https://mynickname.com/projectsoft" target="_blank")
+						|ProjectSoft © 2008 - all right reserved
