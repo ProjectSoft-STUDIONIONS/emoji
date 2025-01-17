@@ -34,3 +34,8 @@ body footer {
   -ms-flex: 0 0 auto;
       flex: 0 0 auto;
 }
+.container,
+.container-full {
+  padding-left: 15px;
+  padding-right: 15px;
+}

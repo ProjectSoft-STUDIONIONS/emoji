@@ -31,12 +31,15 @@ html(lang="ru")
 		link(type="text/css" rel="stylesheet" href="css/main.min.css?" + hash)
 	body
 		header
-			h1.text-center
-				span.inline-block.text-left
-					|Иконки Emoji
+			.container-full
+				h1.text-center
+					span.inline-block.text-left
+						|Иконки Emoji
 		main
-			div.clearfix(data-plugin="emoji")
-				script(src="js/emoji.min.js?" + hash)
+			.container-full
+				div.clearfix(data-plugin="emoji")
+					script(src="js/emoji.min.js?" + hash)
 		footer
-			p
-				|footer
+			.container-full
+				p
+					|footer
