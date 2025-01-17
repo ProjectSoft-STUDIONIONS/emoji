@@ -25,6 +25,14 @@ body {
       flex-direction: column;
   min-height: 100vh;
 }
+body main,
+body header,
+body footer {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+      flex-direction: column;
+}
 body main {
   -ms-flex: 1 0 auto;
       flex: 1 0 auto;
@@ -38,6 +46,14 @@ body footer {
 .container-full {
   padding-left: 15px;
   padding-right: 15px;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+      flex-direction: column;
+  position: relative;
+  min-height: 100%;
+  -ms-flex: 1 0 auto;
+      flex: 1 0 auto;
 }
 .container::after,
 .container-full::after,
@@ -46,4 +62,32 @@ body footer {
   display: table;
   content: "";
   clear: both;
+}
+[data-plugin] {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+      flex-direction: column;
+  position: relative;
+  min-height: 100%;
+  -ms-flex: 1 0 auto;
+      flex: 1 0 auto;
+}
+.emoji-wrapp {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+      flex-direction: column;
+  position: relative;
+  min-height: 100%;
+  -ms-flex: 1 0 auto;
+      flex: 1 0 auto;
+}
+.emoji-wrapp .emoji-tabs {
+  -ms-flex: 0 0 auto;
+      flex: 0 0 auto;
+}
+.emoji-wrapp .emoji-content {
+  -ms-flex: 1 0 auto;
+      flex: 1 0 auto;
 }

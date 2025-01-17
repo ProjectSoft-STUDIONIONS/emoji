@@ -30,6 +30,12 @@ body {
 	display: flex;
 	flex-direction: column;
 	min-height: 100vh;
+	main,
+	header,
+	footer {
+		display: flex;
+		flex-direction: column;
+	}
 	main {
 		flex: 1 0 auto;
 	}
@@ -44,5 +50,30 @@ body {
 		.clearfix();
 		padding-left: 15px;
 		padding-right: 15px;
+		display: flex;
+		flex-direction: column;
+		position: relative;
+		min-height: 100%;
+		flex: 1 0 auto;
+	}
+}
+[data-plugin] {
+	display: flex;
+	flex-direction: column;
+	position: relative;
+	min-height: 100%;
+	flex: 1 0 auto;
+}
+.emoji-wrapp {
+	display: flex;
+	flex-direction: column;
+	position: relative;
+	min-height: 100%;
+	flex: 1 0 auto;
+	.emoji-tabs {
+		flex: 0 0 auto;
+	}
+	.emoji-content {
+		flex: 1 0 auto;
 	}
 }
