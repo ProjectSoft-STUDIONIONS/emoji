@@ -1,9 +1,9 @@
 @charset "UTF-8";
-@import url('https://fonts.googleapis.com/css2?family=Noto+Color+Emoji&display=swap');
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
 .emoji-wrapp {
   margin-bottom: 15px;
   font-size: 14px;
-  font-family: 'Calibri', 'Tahoma', 'Noto Color Emoji', Tofu, sans-serif;
+  font-family: 'Calibri', 'Tahoma', 'Material Icons', 'Noto Color Emoji', Tofu, sans-serif;
 }
 .emoji-wrapp *,
 .emoji-wrapp ::after,
@@ -22,7 +22,7 @@
   clear: both;
 }
 .emoji-wrapp .emoji-tabs {
-  font-family: 'Calibri', 'Tahoma', 'Noto Color Emoji', Tofu, sans-serif;
+  font-family: 'Calibri', 'Tahoma', 'Material Icons', 'Noto Color Emoji', Tofu, sans-serif;
   display: -ms-flexbox;
   display: flex;
   -ms-flex-direction: row;
