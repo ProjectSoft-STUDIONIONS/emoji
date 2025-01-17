@@ -24,6 +24,7 @@ body {
   -ms-flex-direction: column;
       flex-direction: column;
   font-family: 'Calibri', 'Tahoma', 'Noto Color Emoji', Tofu, sans-serif;
+  min-height: 100vh;
 }
 body main,
 body header,
