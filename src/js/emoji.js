@@ -6126,6 +6126,27 @@
 		block.append(tabs);
 		block.append(content);
 		plugin.append(block);
+
+		/**
+		 * location.hash при загрузке
+		 * Не идеальна. Нужна дороботка
+		 */
+		let idHash = window.location.hash;
+		if(idHash){
+			idHash = idHash.replace(/#/g, ``);
+			let inp = window.document.querySelector("#emoji-radio-" + idHash);
+			if(Boolean(inp)){
+				if(inp.tagName == 'INPUT'){
+					inp.checked = true;
+					let event = new Event('input', {
+						bubbles: true,
+						cancelable: true,
+						target: inp
+					});
+					inp.dispatchEvent(event);
+				}
+			}
+		}
 	};
 
 	/**
@@ -6230,26 +6251,5 @@
 	});
 
 	main(emojies);
-
-	/**
-	 * location.hash при загрузке
-	 * Не идеальна. Нужна дороботка
-	 */
-	let idHash = window.location.hash;
-	if(idHash){
-		idHash = idHash.replace(/#/g, ``);
-		let inp = window.document.querySelector("#emoji-radio-" + idHash);
-		if(Boolean(inp)){
-			if(inp.tagName == 'INPUT'){
-				inp.checked = true;
-				let event = new Event('input', {
-					bubbles: true,
-					cancelable: true,
-					target: inp
-				});
-				inp.dispatchEvent(event);
-			}
-		}
-	}
 
 }());
