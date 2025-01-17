@@ -5979,11 +5979,6 @@
 	const main = (emotics) => {
 
 		/**
-		 * Блок вставки плагина
-		 */
-		const plugin = document.querySelector("[data-plugin=emoji]");
-
-		/**
 		 * Опции
 		 */
 		let h3Title,
@@ -5993,13 +5988,11 @@
 			pOption = false,
 			url = document.currentScript.src;
 		url = new URL(url);
-		if(!plugin){
-			return !1;
-		}
 
 		/**
 		 * Подключаем стили
 		 */
+		const head = document.querySelector('head');
 		const regex = /js\/emoji(?:\.min)?\.js/g;
 		const subst = `css/emoji.min.css`;
 		const css = url.origin + url.pathname.replace(regex, subst) + "?" + (new Date()).getTime();
@@ -6007,6 +6000,17 @@
 		link.rel = "stylesheet";
 		link.type = "text/css";
 		link.href = css;
+		if(head){
+			head.append(link);
+		}
+
+		/**
+		 * Блок вставки плагина
+		 */
+		const plugin = document.querySelector("[data-plugin=emoji]");
+		if(!plugin){
+			return !1;
+		}
 
 		/**
 		 * Блок для всего плагина
@@ -6122,7 +6126,6 @@
 		block.append(tabs);
 		block.append(content);
 		plugin.append(block);
-		plugin.append(link);
 	};
 
 	/**

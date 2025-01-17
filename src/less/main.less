@@ -1,0 +1,40 @@
+@charset "UTF-8";
+
+.clearfix {
+	&::after,
+	&::before {
+		display: table;
+		content: "";
+		clear: both;
+	}
+}
+
+.text-left {
+	text-align: left;
+}
+
+.text-right {
+	text-align: right;
+}
+
+.text-center {
+	text-align: center;
+}
+
+.text-justify {
+	text-align: justify;
+}
+
+body {
+	margin: unset;
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
+	main {
+		flex: 1 0 auto;
+	}
+	header,
+	footer {
+		flex: 0 0 auto;
+	}
+}

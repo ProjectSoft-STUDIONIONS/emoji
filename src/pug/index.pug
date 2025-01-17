@@ -30,8 +30,13 @@ html(lang="ru")
 		//- include ../inc/favicon.pug
 		link(type="text/css" rel="stylesheet" href="css/main.min.css?" + hash)
 	body
-		h1.text-center
-			span.inline-block.text-left
-				|Иконки Emoji
-		div(data-plugin="emoji")
-			script(src="js/emoji.min.js?" + hash)
+		header
+			h1.text-center
+				span.inline-block.text-left
+					|Иконки Emoji
+		main
+			div.clearfix(data-plugin="emoji")
+				script(src="js/emoji.min.js?" + hash)
+		footer
+			p
+				|footer
