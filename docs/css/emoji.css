@@ -97,7 +97,6 @@
 }
 .emoji-wrapp .emoji-content .tabs-content {
   position: relative;
-  padding-bottom: 15px;
   display: none;
 }
 .emoji-wrapp .emoji-content .tabs-content h1,
@@ -153,6 +152,8 @@
   justify-content: flex-start;
   padding-left: 15px;
   padding-right: 15px;
+  padding-bottom: 15px;
+  overflow: hidden;
 }
 .emoji-wrapp .emoji--icon {
   background-color: #ffffff;
