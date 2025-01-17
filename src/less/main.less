@@ -31,6 +31,8 @@ body {
 	flex-direction: column;
 	font-family: 'Calibri', 'Tahoma', 'Noto Color Emoji', Tofu, sans-serif;
 	min-height: 100vh;
+	background-color: #ffffff;
+	color: #333333;
 	main,
 	header,
 	footer {
@@ -49,6 +51,19 @@ body {
 			&:last-child {
 				margin-bottom: unset;
 			}
+		}
+	}
+	a {
+		text-decoration: unset;
+		&:hover,
+		&:focus {
+			text-decoration: underline;
+		}
+		&,
+		&:hover,
+		&:focus,
+		&:active {
+			color: #0098ff;
 		}
 	}
 }
