@@ -142,6 +142,16 @@ module.exports = function(grunt) {
 				]
 			},
 		},
+		copy: {
+			fonts: {
+				expand: true,
+				cwd: 'src/fonts',
+				src: [
+					'**'
+				],
+				dest: 'docs/fonts/',
+			},
+		}
 	});
 	grunt.registerTask('default',	[
 		'concat',
@@ -149,6 +159,7 @@ module.exports = function(grunt) {
 		'less',
 		'autoprefixer',
 		'cssmin',
-		'pug'
+		'pug',
+		'copy'
 	]);
 };

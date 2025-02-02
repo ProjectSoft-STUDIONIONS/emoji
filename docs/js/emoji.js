@@ -6208,6 +6208,7 @@
 				html = "",
 				out = span.closest(".tabs-content").querySelector('span.out'),
 				rng;
+			console.log(out);
 			if(navigator.clipboard){
 				span.classList.remove('copy');
 				span.classList.remove('error');
@@ -6247,6 +6248,12 @@
 					document.execCommand("copy");
 					clearSelection(span);
 				}
+				out.innerHTML = "СКОПИРОВАНО: " + span.firstChild.nodeValue;
+				setTimeout(() => {
+					span.classList.remove('copy');
+					span.classList.remove('error');
+					out.innerHTML = "";
+				}, 500);
 			}
 		}
 	});
