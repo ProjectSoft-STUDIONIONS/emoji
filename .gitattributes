@@ -27,3 +27,4 @@
 /*.inf export-ignore
 /*.ini export-ignore
 /*.ico export-ignore
+/.npmrc export-ignore
