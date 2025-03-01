@@ -3,35 +3,35 @@ module.exports = function(grunt) {
 	path = require('path'),
 		chalk = require('chalk'),
 		PACK = grunt.file.readJSON('package.json'),
-		uniqid = function (file = "") {
+		uniqid = function (...args) {
 			var md5 = require('md5');
 			let result = "";
-			if(!file){
+			if(!args.length){
 				let time = (new Date()).getTime();
 				result = md5(time).toString();
 			}else{
-				file = path.normalize(path.join(__dirname, file));
-				let buff = fs.readFileSync(file, {
-					encoding: "utf8"
-				}).toString();
-				result = md5(buff).toString();
+				let text = "";
+				for(let index in args){
+					let file = args[index];file = path.normalize(path.join(__dirname, file));
+					try{
+						let buff = fs.readFileSync(file, {
+							encoding: "utf8"
+						}).toString();
+						text += buff;
+					}catch(e){
+						// Ничего не делаем
+					}
+				}
+				result = md5(text).toString();
 			}
+			args.push(result);
+			grunt.log.writeln([chalk.cyan("Generate hash:") + "\n" + chalk.yellow(args.join("\n"))]);
 			return result;
 		};
 
 	require('load-grunt-tasks')(grunt);
 	require('time-grunt')(grunt);
-	var optionsPug = {
-			doctype: 'html',
-			client: false,
-			pretty: "",//'\t',
-			separator:  "",//'\n',
-			data: function(dest, src) {
-				return {
-					"hash": uniqid(),
-				}
-			}
-		};
+
 	grunt.initConfig({
 		globalConfig : {},
 		pkg : PACK,
@@ -80,7 +80,7 @@ module.exports = function(grunt) {
 					ieCompat: false,
 					plugins: [],
 					modifyVars: {
-						'hash': '\'' + uniqid('src/less/main.less') + '\'',
+						'hash': '\'' + uniqid('src/less/main.less', 'src/less/emoji.less') + '\'',
 					}
 				},
 				files : {

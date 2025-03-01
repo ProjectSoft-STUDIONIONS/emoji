@@ -16,6 +16,12 @@
 		{
 			"name": "Запуск сборки проекта",
 			"working_dir": "${project_path}",
+			"cmd": ["start", "/wait", "grunt", "default"],
+			"shell": true
+		},
+		{
+			"name": "Запуск сборки проекта (verbose)",
+			"working_dir": "${project_path}",
 			"cmd": ["start", "/wait", "grunt", "-v", "default"],
 			"shell": true
 		}
