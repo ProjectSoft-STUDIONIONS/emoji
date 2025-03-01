@@ -2,30 +2,34 @@ module.exports = function(grunt) {
 	var fs = require('fs'),
 	path = require('path'),
 		chalk = require('chalk'),
-		PACK = grunt.file.readJSON('package.json'),
-		uniqid = function (...args) {
+		hash = function (...args) {
 			var md5 = require('md5');
-			let result = "";
+			let result = "",
+				arr = [];
 			if(!args.length){
 				let time = (new Date()).getTime();
+				arr.push("Not arguments");
 				result = md5(time).toString();
 			}else{
 				let text = "";
 				for(let index in args){
-					let file = args[index];file = path.normalize(path.join(__dirname, file));
+					let file = args[index];
+					file = path.normalize(path.join(__dirname, file));
 					try{
 						let buff = fs.readFileSync(file, {
 							encoding: "utf8"
 						}).toString();
 						text += buff;
+						arr.push(file);
 					}catch(e){
 						// Ничего не делаем
+						arr.push("Not found");
 					}
 				}
 				result = md5(text).toString();
 			}
-			args.push(result);
-			grunt.log.writeln([chalk.cyan("Generate hash:") + "\n" + chalk.yellow(args.join("\n"))]);
+			arr.push(result);
+			grunt.log.oklns([chalk.cyan("Generate hash:") + "\n" + chalk.yellow(arr.join("\n"))]);
 			return result;
 		};
 
@@ -34,7 +38,7 @@ module.exports = function(grunt) {
 
 	grunt.initConfig({
 		globalConfig : {},
-		pkg : PACK,
+		pkg : {},
 		concat: {
 			options: {
 				separator: "\n",
@@ -80,7 +84,7 @@ module.exports = function(grunt) {
 					ieCompat: false,
 					plugins: [],
 					modifyVars: {
-						'hash': '\'' + uniqid('src/less/main.less', 'src/less/emoji.less') + '\'',
+						'hash': '\'' + hash('src/less/main.less', 'src/less/emoji.less') + '\'',
 					}
 				},
 				files : {
@@ -136,9 +140,9 @@ module.exports = function(grunt) {
 					separator:  "",//'\n',
 					data: function(dest, src) {
 						return {
-							"hash_css": uniqid('docs/css/main.min.css'),
-							'hash_css_emoji': uniqid('docs/css/emoji.min.css'),
-							'hash_js': uniqid('docs/js/emoji.min.js'),
+							"hash_css": hash('docs/css/main.min.css'),
+							'hash_css_emoji': hash('docs/css/emoji.min.css'),
+							'hash_js': hash('docs/js/emoji.min.js'),
 						}
 					}
 				},

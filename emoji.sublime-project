@@ -2,8 +2,20 @@
 	"folders":
 	[
 		{
-			"path": ".",
-			"name": "Emoji Icons"
+			"path": "./docs",
+			"name": "Emoji Icons Assembly"
+		},
+		{
+			"path": "./src/js",
+			"name": "Emoji JS Development"
+		},
+		{
+			"path": "./src/less",
+			"name": "Emoji LESS Development"
+		},
+		{
+			"path": "./src/pug",
+			"name": "Emoji PUG Development"
 		}
 	],
 	"settings":  {
