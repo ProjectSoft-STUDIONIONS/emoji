@@ -6024,6 +6024,7 @@
 		/**
 		 * Подключаем стили
 		 */
+		/*
 		const head = document.querySelector('head');
 		const regex = /js\/emoji(?:\.min)?\.js/g;
 		const subst = `css/emoji.min.css`;
@@ -6035,6 +6036,7 @@
 		if(head){
 			head.append(link);
 		}
+		*/
 
 		/**
 		 * Блок вставки плагина

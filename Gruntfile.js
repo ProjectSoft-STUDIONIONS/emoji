@@ -1,24 +1,23 @@
 module.exports = function(grunt) {
 	var fs = require('fs'),
+	path = require('path'),
 		chalk = require('chalk'),
 		PACK = grunt.file.readJSON('package.json'),
-		uniqid = function () {
+		uniqid = function (file = "") {
 			var md5 = require('md5');
-			result = md5((new Date()).getTime()).toString();
-			grunt.verbose.writeln("Generate hash: " + chalk.cyan(result) + " >>> OK");
+			let result = "";
+			if(!file){
+				let time = (new Date()).getTime();
+				result = md5(time).toString();
+			}else{
+				file = path.normalize(path.join(__dirname, file));
+				let buff = fs.readFileSync(file, {
+					encoding: "utf8"
+				}).toString();
+				result = md5(buff).toString();
+			}
 			return result;
 		};
-	
-	String.prototype.hashCode = function() {
-		var hash = 0, i, chr;
-		if (this.length === 0) return hash;
-		for (i = 0; i < this.length; i++) {
-			chr   = this.charCodeAt(i);
-			hash  = ((hash << 5) - hash) + chr;
-			hash |= 0; // Convert to 32bit integer
-		}
-		return hash;
-	};
 
 	require('load-grunt-tasks')(grunt);
 	require('time-grunt')(grunt);
@@ -81,7 +80,7 @@ module.exports = function(grunt) {
 					ieCompat: false,
 					plugins: [],
 					modifyVars: {
-						'hash': '\'' + uniqid() + '\'',
+						'hash': '\'' + uniqid('src/less/main.less') + '\'',
 					}
 				},
 				files : {
@@ -130,7 +129,19 @@ module.exports = function(grunt) {
 		},
 		pug: {
 			serv: {
-				options: optionsPug,
+				options: {
+					doctype: 'html',
+					client: false,
+					pretty: "",//'\t',
+					separator:  "",//'\n',
+					data: function(dest, src) {
+						return {
+							"hash_css": uniqid('docs/css/main.min.css'),
+							'hash_css_emoji': uniqid('docs/css/emoji.min.css'),
+							'hash_js': uniqid('docs/js/emoji.min.js'),
+						}
+					}
+				},
 				files: [
 					{
 						expand: true,

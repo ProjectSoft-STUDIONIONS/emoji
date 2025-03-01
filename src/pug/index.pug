@@ -28,7 +28,8 @@ html(lang="ru")
 		meta(name="twitter:card" content="summary_large_image")
 		//- Favicons
 		//- Style
-		link(type="text/css" rel="stylesheet" href="css/main.min.css?" + hash)
+		link(type="text/css" rel="stylesheet" href="css/main.min.css?" + hash_css)
+		link(type="text/css" rel="stylesheet" href="css/emoji.min.css?" + hash_css_emoji)
 	body
 		header
 			.container-full
@@ -38,7 +39,7 @@ html(lang="ru")
 		main
 			.container-full
 				div.clearfix(data-plugin="emoji")
-					script(src="js/emoji.min.js?" + hash)
+					script(src="js/emoji.min.js?" + hash_js)
 		footer
 			.container-full
 				p.text-right
